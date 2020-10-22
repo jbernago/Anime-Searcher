@@ -1,0 +1,45 @@
+img {
+  margin-right: 20px;
+  margin-top: 1px;
+  height: 315px;
+}
+
+.episodes_result {
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+table {
+  max-height: 315px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: block;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+td {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.id {
+  background-color: crimson;
+  color: #ffffff;
+}
+/*# sourceMappingURL=anime-list.component.css.map */

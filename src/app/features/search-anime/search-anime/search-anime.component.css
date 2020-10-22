@@ -1,0 +1,35 @@
+.search_component {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+
+.anime_text {
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  height: 30px;
+  width: 350px;
+  padding: 0 20px;
+}
+
+.search_btn {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border: none;
+  padding: 10px 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+/*# sourceMappingURL=search-anime.component.css.map */
