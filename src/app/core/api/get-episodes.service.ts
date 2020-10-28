@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -29,7 +30,7 @@ export class GetEpisodesService {
   constructor(private httpClient: HttpClient) { }
 
   getData(idAnime, idPage=1){
-    let urlApi = `https://api.jikan.moe/v3/anime/${idAnime}/episodes/${idPage}`;
+    let urlApi = `${environment.animeApi}anime/${idAnime}/episodes/${idPage}`;
     return this.httpClient.get<EpisodeRes>(urlApi);
   }
 }

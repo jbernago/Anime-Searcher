@@ -1,0 +1,8 @@
+
+<div class="search-component">
+    <form [formGroup]="searchAnimeFormGroup" class="search-component__formGroup">
+        <p class="search-component__title">Introduzca el título del anime:</p>
+        <input class="search-component__text" #animeName type="text" placeholder="Título">
+        <button type="submit" class="search_btn" (click)="searchAnime(animeName.value)">Buscar</button>
+    </form>
+</div>

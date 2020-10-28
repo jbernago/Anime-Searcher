@@ -1,0 +1,36 @@
+<div class="user-register">
+    <p class="user-register__title">Introduzca los datos del usuario para registrarlo:</p>
+    
+    <form [formGroup]="user" class="user-register__formGroup" (ngSubmit)="onSubmit()"> 
+
+        <div class="user-register__formWrapper">
+            <input [ngClass]="{'user-register__formControl--error': user.get('name').errors !==null  && (formSended || !user.get('name').pristine)}" class="user-register__formControl" type="text" formControlName="name" placeholder="Nombre" id="userName">
+            <small *ngIf="user.get('name').errors?.required && (formSended || !user.get('name').pristine)" class="user-register__formTextError">*El nombre es requerido</small>
+        </div>
+        <div class="user-register__formWrapper">
+            <input [ngClass]="{'user-register__formControl--error': user.get('email').errors !==null  && (formSended || !user.get('email').pristine)}"  class="user-register__formControl" type="email" formControlName="email" placeholder="Correo electrónico" id="userEmail">
+            <small *ngIf="user.get('email').errors?.required  && (formSended || !user.get('email').pristine)"  class="user-register__formTextError">*El email es requerido</small>
+            <small *ngIf="user.get('email').errors?.email && (formSended || !user.get('email').pristine)" class="user-register__formTextError">*El formato no es válido</small>
+        </div> 
+        <div class="user-register__formWrapper">
+            <p-calendar styleClass="user-register__formControl--diferent" formControlName="birthDate" showButtonBar="true" [locale]="es" dateFormat="dd/mm/yy" inputId="spanish" id="userBirthDate" [touchUI]="true" [readonlyInput]="true" [maxDate]="maxDate" placeholder="Fecha de nacimiento"></p-calendar>
+            <small *ngIf="user.get('birthDate').errors?.required  && (formSended || !user.get('birthDate').pristine)" class="user-register__formTextError">*La fecha de nacimiento es requerida</small>
+        </div>
+        <div class="user-register__submitButton">
+
+            <button type="reset" (click)="reset()" class="search_btn">Borrar</button>
+
+            <div *ngIf="user.valid; then buttonRegister; else buttonRegisterDisabled"></div>
+            <ng-template #buttonRegister>
+                <button type="submit" class="search_btn">Registrar</button>
+            </ng-template>
+            <ng-template #buttonRegisterDisabled>
+                <button type="submit" class="search_btn" disabled>Registrar</button>
+            </ng-template>
+        </div>
+
+    </form>
+
+    <p-toast position="bottom-right"></p-toast>
+    
+</div>
