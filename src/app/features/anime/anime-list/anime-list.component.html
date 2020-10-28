@@ -1,12 +1,12 @@
 <div *ngIf="episodesListService.idAnime !== undefined">
 
-    <div class="episode">
+    <div class="episode episode-active">
 
         <p-table #tableEpisodes [value]="episodesListService.episodes" [lazy]="true" (onLazyLoad)="loadAnimes($event)" 
             [paginator]="true" [rows]="100" [totalRecords]="episodesListService.totalRecords" [loading]="loading">
             <ng-template pTemplate="header">
                 <tr>
-                    <th>Nº</th>
+                    <th class="table-header">Nº</th>
                     <th>Episodio</th>
                 </tr>
             </ng-template>
