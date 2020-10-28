@@ -1,0 +1,12 @@
+<div class="user-list">
+    <p-panel styleClass="panelWidth" header="Lista de Usuarios" [toggleable]="true">
+        <ul class="user-list__data" *ngFor="let user of users; let i = index">
+            <li class="user-list__data-text" title="{{ user.name }}">
+                <strong>{{ user.name }}</strong> con email <strong>{{ user.email }}</strong> nacido el día <strong>{{ user.birthDate | date:'dd/MM/yy' }}</strong>
+            </li>
+            <li class="user-list__data-delete" (click)="confirmDelete(user)" title="Eliminar">Eliminar</li>
+        </ul>
+    </p-panel>
+    <p-confirmDialog [style]="{width: '50vw'}" [acceptLabel]="'Si'" [rejectLabel]="'No'" [baseZIndex]="10000"></p-confirmDialog>
+    <p-toast position="bottom-right"></p-toast>
+</div>

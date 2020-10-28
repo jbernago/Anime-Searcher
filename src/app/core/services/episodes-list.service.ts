@@ -1,6 +1,6 @@
 import { Episode } from './../api/get-episodes.service';
 import { Injectable } from '@angular/core';
-
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,16 +16,24 @@ export class EpisodesListService {
 
   image: '';
 
-  // paginator = [];
+  totalRecords: number;
+
+  private searchAnimeSubject = new Subject();
 
   setEpisodes(receivedEpisodes, receivedLastPage){
     this.episodes = receivedEpisodes;
     this.lastPage = receivedLastPage;
-    // this.paginator = [];
-    // for(let i = 1; i<=this.lastPage; i++){
-    //   this.paginator.push(i);
-    // }
+    this.totalRecords = (this.lastPage)*100;
   }
+
+  doNext(){
+    this.searchAnimeSubject.next('ok');
+  }
+
+  getSearchSubject(){
+    return this.searchAnimeSubject;
+  }
+
 
 
   constructor() { }

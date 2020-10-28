@@ -1,0 +1,45 @@
+<div *ngIf="episodesListService.idAnime !== undefined">
+
+    <div class="episode">
+
+        <p-table #tableEpisodes [value]="episodesListService.episodes" [lazy]="true" (onLazyLoad)="loadAnimes($event)" 
+            [paginator]="true" [rows]="100" [totalRecords]="episodesListService.totalRecords" [loading]="loading">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Nº</th>
+                    <th>Episodio</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-episode>
+                <tr>
+                    <td>{{episode.episode_id}}</td>
+                    <td>{{episode.title}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+
+        
+    </div>
+    
+
+
+</div>
+<!-- <img src="{{episodesListService.image}}" alt="">
+<div class="episode__result">
+    <div class="episode__header">
+        <div class="episode__id"><span>Nº</span></div>
+        <div class="episode__title"><span>Episodio</span></div>
+    </div>
+    <div class="episode__list">
+        <div *ngFor="let episode of episodesListService.episodes;">
+            <app-anime-item [receivedData]="episode"></app-anime-item>
+        </div>
+    </div>
+    <div class="episode__paginator">
+        <div class="episode__paginator-if" *ngIf="episodesListService.lastPage > 1">
+            <div *ngFor="let page of episodesListService.lastPage | paginator  ">
+                <div class="episode__paginator-page" (click)="changePage(page)"><span>{{page}}</span></div>
+            </div>
+        </div>
+    </div>
+</div> -->

@@ -1,7 +1,8 @@
 import { GetEpisodesService } from './../../../core/api/get-episodes.service';
 import { EpisodesListService } from './../../../core/services/episodes-list.service';
 import { Component, OnInit } from '@angular/core';
-import { SearchAnimeService, Result } from './../../../core/api/search-anime.service';
+import { SearchAnimeService} from './../../../core/api/search-anime.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-search-anime',
@@ -16,6 +17,9 @@ export class SearchAnimeComponent implements OnInit {
 
   animeName= '';
 
+  searchAnimeFormGroup = new FormGroup({});
+
+
   constructor(public searchAnimeService: SearchAnimeService, public episodesListService:EpisodesListService, public getEpisodesService:GetEpisodesService) { 
   }
 
@@ -25,23 +29,22 @@ export class SearchAnimeComponent implements OnInit {
         console.log(res.results);
         this.listaDeEpisodios = res.results;
         this.idFirstAnime = this.listaDeEpisodios[0].mal_id;
+        const firstSearch = (this.episodesListService.idAnime === undefined);
         this.episodesListService.idAnime = this.idFirstAnime ;
         this.episodesListService.image = this.listaDeEpisodios[0].image_url;
-
-        if(this.episodesListService.idAnime !== undefined){
-          // COMO SEGUNDO PARÁMETRO SE LE PUEDE PASAR LA PÁGINA A GETDATA(), POR DEFECTO ESTÁ A 1
-          this.getEpisodesService.getData(this.episodesListService.idAnime).subscribe((res) =>{
-            console.log(res);
-            this.episodesListService.setEpisodes(res.episodes, res.episodes_last_page);
-          });
+        if(!firstSearch){
+          this.episodesListService.doNext();
         }
-
     });
+
   }
   
   
 
   ngOnInit(): void {
+
+
+
   }
 
 }

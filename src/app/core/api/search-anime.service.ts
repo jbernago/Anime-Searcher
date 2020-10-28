@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 export interface Result {
@@ -36,7 +37,7 @@ export class SearchAnimeService {
 
 
   getData(animeName){
-    let urlApi = `https://api.jikan.moe/v3/search/anime?q=${animeName} `;
+    let urlApi = `${environment.animeApi}search/anime?q=${animeName}`;
     return this.httpClient.get<AnimeRes>(urlApi);
   }
 

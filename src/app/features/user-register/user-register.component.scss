@@ -1,0 +1,97 @@
+@import '../../../styles.scss';
+
+.user-register{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 0px rgba(138,138,138,0.25);
+    width: 600px;
+    margin: auto;
+    margin-top: 30px;
+    background-color: $white;
+    font-size: 18px;
+
+    &__title{
+        font-weight: bold;
+    }
+
+    &__formTextError{
+        color: $red !important;
+    }
+
+
+    &__formGroup{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+
+    &__formWrapper{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        position: relative;
+
+        &:first-of-type{
+            margin-top: 0;
+        }
+
+        small{
+            position: absolute;
+            bottom: -20px;
+            color: $red;
+        }
+    }
+
+    &__formControl{
+        border: 2px solid rgba($color: #000000, $alpha: .1);
+        height: 30px;
+        width: 450px;
+        padding: 0 20px;
+
+        &--error{
+            border: 2px solid $red !important;
+        }
+    }
+
+    &__submitButton{
+        display: flex;
+    }
+}
+
+.search_btn{
+    margin-top: 40px;
+    margin-bottom: 15px;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    background-color: $black;
+    color: $white;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-right: 0;
+    border: none;
+
+    &:disabled {
+        background: darken($grey, 15);
+        cursor: initial;
+        
+        &:hover{
+            background: darken($grey, 15);
+        }
+    }
+
+    &:hover{
+        background-color: $red;
+    }
+
+    &:first-of-type{
+        margin-right: 20px;
+        background-color: $red;
+    }
+}
